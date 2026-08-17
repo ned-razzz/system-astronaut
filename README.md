@@ -1,0 +1,29 @@
+## 개요
+
+사용자 또는 프로젝트의 초기 요구를 입력받아 **User Requirements → System Requirements → HW Architecture → SW Architecture**를 일관된 흐름으로 작성·검토하는 Codex Skills를 구현한다.
+
+각 산출물은 독립적으로 사용할 수 있으면서도 상위 단계의 요구와 하위 단계의 설계가 연결되도록 구성한다. 소규모 팀의 애자일 개발을 대상으로 하며, 불필요한 문서화를 줄이고 실제 개발에 필요한 핵심 정보에 집중한다.
+
+```text
+Project / User Needs
+        ↓
+User Requirements
+        ↓
+System Requirements
+        ↓
+ ┌───────────────┐
+ │ Architecture  │
+ └───────┬───────┘
+         ↓
+ ┌───────┴───────┐
+ ↓               ↓
+HW Architecture  SW Architecture
+```
+
+## 목적
+
+초기 아이디어와 사용자 요구를 **구현 가능한 시스템 정의와 아키텍처까지 단계적으로 구체화**하는 것이 목적이다.
+
+UR과 SR에서는 **무엇이 필요한지**를 명확히 정의하고, HW/SW Architecture에서는 이를 만족하기 위해 **시스템을 어떤 구성 요소와 책임으로 나눌지** 정의한다.
+
+전체 과정에서 요구사항의 명확성·일관성·검증 가능성을 확보하고, **UR → SR → HW/SW Architecture 간 추적성**을 유지하여 요구 변경이 설계에 미치는 영향을 파악할 수 있도록 한다.
