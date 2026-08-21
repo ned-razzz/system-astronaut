@@ -1,0 +1,44 @@
+- id: UR_TRIGGER_001
+  prompt: "이런 프로젝트를 기획했어. User Requirements를 작성해."
+  should_trigger: true
+
+- id: UR_TRIGGER_002
+  prompt: "이 아이디어를 사용자 요구사항으로 정리해줘."
+  should_trigger: true
+
+- id: UR_TRIGGER_003
+  prompt: "이 회의록의 맞춤법만 고쳐줘."
+  should_trigger: false
+
+- id: UR_SCOPE_001
+  prompt: "System Requirements를 작성해."
+  should_generate_ur: false
+
+- id: UR_SCOPE_002
+  prompt: "Requirements를 작성해."
+  should_generate_ur: false
+
+- id: UR_GENERATE_001
+  prompt: "첨부된 프로젝트 기획서를 바탕으로 UR를 작성해."
+  input: fixtures/project-brief-sample1.md
+  checks:
+    - unique_ur_id
+    - user_story
+    - acceptance_criteria
+    - valid_requirement_state
+    - unresolved_items_are_open
+    - out_of_scope_is_preserved
+    - no_invented_decisions
+    - no_premature_baseline
+
+- id: UR_GENERATE_002
+  prompt: "첨부된 아이디어를 바탕으로 UR를 작성해."
+  input: fixtures/project-brief-sample2.md
+  checks:
+    - unique_ur_id
+    - user_story
+    - acceptance_criteria
+    - valid_requirement_state
+    - unresolved_items_are_open
+    - no_invented_decisions
+    - no_premature_baseline
