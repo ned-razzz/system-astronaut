@@ -13,17 +13,6 @@ source tree or test suite.
     ├── SKILL.md                      # Trigger metadata and operating workflow
     ├── agents/
     │   └── openai.yaml               # UI-facing name and default prompt
-    ├── references/
-    │   ├── artifact-contracts.md     # States, IDs, links, and baselines
-    │   └── workflow.md               # Stage inputs, outputs, and gates
-    └── assets/
-        └── project/                  # Copyable project-document templates
-            ├── decisions.md          # Architecture and scope decisions
-            ├── hardware-architecture.md # Hardware design placeholder
-            ├── software-architecture.md # Software design placeholder
-            ├── system-requirements.md  # SR document placeholder
-            ├── traceability.md       # UR/SR/HW/SW relationship table
-            └── user-requirements.md  # UR document placeholder
 ```
 
 ## Build, Test, and Development Commands
@@ -36,4 +25,6 @@ python3 /home/robo/.codex/skills/.system/skill-creator/scripts/quick_validate.py
 
 ## Change Safety
 
-Preserve the distinction between confirmed, proposed, open, conflicted, out-of-scope, and `n/a` states. Changes to IDs, stage gates, or traceability rules can affect every project template; update the related reference and templates together, then run validation.
+Preserve the distinction between confirmed, proposed, open, conflicted,
+out-of-scope, and `n/a` states. Add references, templates, or scripts only when
+real usage shows that `SKILL.md` alone is insufficient.
