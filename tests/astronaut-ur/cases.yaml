@@ -25,11 +25,19 @@
     - unique_ur_id
     - user_story
     - acceptance_criteria
+    - one_user_goal_per_ur
+    - user_story_has_who_what_why
+    - acceptance_criteria_are_observable_pass_fail
     - valid_requirement_state
+    - state_is_metadata
     - unresolved_items_are_open
     - out_of_scope_is_preserved
     - no_invented_decisions
     - no_premature_baseline
+    - no_priority_field
+    - no_implementation_details
+    - no_system_or_architecture_content
+    - no_definition_of_done
 
 - id: UR_GENERATE_002
   prompt: "첨부된 아이디어를 바탕으로 UR를 작성해."
@@ -38,7 +46,15 @@
     - unique_ur_id
     - user_story
     - acceptance_criteria
+    - one_user_goal_per_ur
+    - user_story_has_who_what_why
+    - acceptance_criteria_are_observable_pass_fail
     - valid_requirement_state
+    - state_is_metadata
     - unresolved_items_are_open
     - no_invented_decisions
     - no_premature_baseline
+    - no_priority_field
+    - no_implementation_details
+    - no_system_or_architecture_content
+    - no_definition_of_done
