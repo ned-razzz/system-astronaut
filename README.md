@@ -1,23 +1,47 @@
+<p align="center">
+  <img src="#" width="96" height="96" alt="" />
+</p>
+
+<h1 align="center">System Astronaut</h1>
+
+<p align="center">스킬 설명</p>
+
+<p align="center">
+  <a href="https://github.com/ned-razzz/astronauts/stargazers"><img src="https://img.shields.io/github/stars/ned-razzz/astronauts?style=flat&color=yellow" alt="GitHub stars" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/ned-razzz/astronauts?style=flat" alt="MIT license" /></a>
+</p>
+
+---
+
 ## 개요
 
-사용자 또는 프로젝트의 초기 요구를 입력받아 **User Requirements → System Requirements → HW Architecture → SW Architecture**를 일관된 흐름으로 작성·검토하는 Codex Skills를 구현한다.
+사용자 또는 프로젝트의 초기 요구를 입력받아 **User Requirements → System Requirements → HW Architecture → SW Architecture**를 독립 Skill로 작성·검토하는 Codex Skills를 구현한다.
+
+## Skills
+
+```text
+.agents/skills/
+├── astronaut-ur/
+├── astronaut-sr/
+├── astronaut-hw/
+└── astronaut-sw/
+```
+
+각 Skill은 하나의 입력·사고 과정·출력 형식을 책임진다. 전체 파이프라인을 자동으로 조정하는 Skill은 반복적인 end-to-end 사용 사례가 확인된 뒤 추가한다.
 
 각 산출물은 독립적으로 사용할 수 있으면서도 상위 단계의 요구와 하위 단계의 설계가 연결되도록 구성한다. 소규모 팀의 애자일 개발을 대상으로 하며, 불필요한 문서화를 줄이고 실제 개발에 필요한 핵심 정보에 집중한다.
 
 ```text
-Project / User Needs
-        ↓
-User Requirements
-        ↓
-System Requirements
-        ↓
- ┌───────────────┐
- │ Architecture  │
- └───────┬───────┘
-         ↓
- ┌───────┴───────┐
- ↓               ↓
-HW Architecture  SW Architecture
+   Project / User Needs
+           ↓
+   User Requirements
+           ↓
+   System Requirements
+           ↓
+      Architecture
+    ┌──────┴─────────────┐
+    ↓                    ↓
+ HW Architecture  SW Architecture
 ```
 
 ## 목적

@@ -1,30 +1,48 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
+## Project Structure
 
-The repository is a self-contained Codex Skill package; there is no application
-source tree or test suite.
+This repository contains four independent Agent Skills. Keep each workflow in
+its own `SKILL.md`; do not merge them into a single conditional Skill.
 
 ```text
 .
-├── AGENTS.md                         # Contributor instructions
-├── README.md                         # Skill purpose and UR → SR → architecture flow
-└── system-astronaut/                 # Main Codex Skill package
-    ├── SKILL.md                      # Trigger metadata and operating workflow
-    ├── agents/
-    │   └── openai.yaml               # UI-facing name and default prompt
+├── AGENTS.md
+├── README.md
+├── .agents/
+│   └── skills/
+│       ├── astronaut-ur/SKILL.md
+│       ├── astronaut-sr/SKILL.md
+│       ├── astronaut-hw/SKILL.md
+│       └── astronaut-sw/SKILL.md
+└── tests/
+    └── astronaut-ur/
+        ├── cases.yaml
+        └── fixtures/
 ```
 
-## Build, Test, and Development Commands
+The workflow is:
 
-No build step is required. Validate the Skill after changing its frontmatter or layout:
+```text
+Project Brief → User Requirements → System Requirements
+                                      ├→ Hardware Architecture
+                                      └→ Software Architecture
+```
+
+Do not add an orchestration Skill, references, assets, or per-Skill test
+scaffolding until repeated use demonstrates that they are needed.
+
+## Validation
+
+Validate every changed Skill after modifying its frontmatter or layout:
 
 ```bash
-python3 /home/robo/.codex/skills/.system/skill-creator/scripts/quick_validate.py system-astronaut
+python3 /home/robo/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/<skill-name>
 ```
 
 ## Change Safety
 
-Preserve the distinction between confirmed, proposed, open, conflicted,
-out-of-scope, and `n/a` states. Add references, templates, or scripts only when
-real usage shows that `SKILL.md` alone is insufficient.
+Preserve the distinction between `confirmed`, `proposed`, `open`,
+`conflicted`, `out-of-scope`, and `n/a` states. Keep traceability from UR to
+SR and from SR to architecture items. Do not silently invent unresolved
+decisions.

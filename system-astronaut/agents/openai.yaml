@@ -1,4 +1,0 @@
-interface:
-  display_name: "System Astronaut"
-  short_description: "Turn ideas into traceable architecture"
-  default_prompt: "Use $system-astronaut to turn my service idea into reviewable requirements and architecture."
