@@ -24,7 +24,7 @@ its own `SKILL.md`; do not merge them into a single conditional Skill.
 The workflow is:
 
 ```text
-Project Brief → User Requirements → System Requirements
+Project Description → User Requirements → System Requirements
                                       ├→ Hardware Architecture
                                       └→ Software Architecture
 ```

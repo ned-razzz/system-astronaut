@@ -20,7 +20,7 @@
 
 - id: UR_GENERATE_001
   prompt: "첨부된 프로젝트 기획서를 바탕으로 UR를 작성해."
-  input: fixtures/project-brief-sample1.md
+  input: fixtures/project-description-sample1.md
   checks:
     - unique_ur_id
     - user_story
@@ -41,7 +41,7 @@
 
 - id: UR_GENERATE_002
   prompt: "첨부된 아이디어를 바탕으로 UR를 작성해."
-  input: fixtures/project-brief-sample2.md
+  input: fixtures/project-description-sample2.md
   checks:
     - unique_ur_id
     - user_story

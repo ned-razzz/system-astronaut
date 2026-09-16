@@ -15,7 +15,7 @@
 
 ## 개요
 
-사용자 또는 프로젝트의 초기 요구를 입력받아 **User Requirements → System Requirements → HW Architecture → SW Architecture**를 독립 Skill로 작성·검토하는 Codex Skills를 구현한다.
+프로젝트가 무엇인지 설명하고 가치를 나열한 형식 없는 초기 문서인 **Project Description** 또는 사용자 요구를 입력받아 **User Requirements → System Requirements → HW Architecture → SW Architecture**를 독립 Skill로 작성·검토하는 Codex Skills를 구현한다.
 
 ## Skills
 
