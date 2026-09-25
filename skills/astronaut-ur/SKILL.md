@@ -5,16 +5,21 @@ description: Create or review lightweight User Requirements from a project brief
 
 # User Requirements
 
-Create the smallest reviewable User Requirements artifact. A UR body consists
-of one User Story and its Acceptance Criteria. Its ID, title, and state are
-metadata, not additional requirement content.
+Create a concise, reviewable User Requirements artifact without shrinking the
+user's stated product scope. A UR body consists of one User Story and its
+Acceptance Criteria. Its ID, title, and state are metadata, not additional
+requirement content.
 
 ## Workflow
 
-1. Extract actors, goals, user value, observable outcomes, and stated scope.
-2. Keep only goals needed for the smallest usable scope supported by the
-   input. Omit speculative, optional, and future goals unless the user asks for
-   broader scope.
+1. Extract actors, goals, user value, observable outcomes, stated scope,
+   explicit exclusions, and constraints.
+2. Preserve all explicitly stated in-scope user goals. Reduce to the smallest
+   usable scope only when the user explicitly requests an MVP, prototype,
+   initial release, or scope reduction. Do not infer such a request from a
+   desire for a lightweight document. Omit unstated or speculative goals;
+   preserve explicitly included optional or future goals with their stated
+   timing or condition.
 3. Give each UR one user goal. Split only when goals can be independently
    accepted or delivered; keep tightly coupled outcomes together.
 4. Write a short User Story that identifies who wants what and why. Use the
@@ -29,8 +34,10 @@ metadata, not additional requirement content.
    instead of forcing it into the UR template.
 
 Use only `confirmed`, `proposed`, `open`, `conflicted`, `out-of-scope`, or
-`n/a` as states. Preserve existing excluded items as `out-of-scope`; use `n/a`
-only when the source explicitly makes an item inapplicable.
+`n/a` as states. Mark a goal `out-of-scope` only when the source explicitly
+excludes or defers it; preserve existing excluded items. If its scope is
+unclear, record an Open Question. Use `n/a` only when the source explicitly
+makes an item inapplicable.
 
 ## Boundaries
 
@@ -46,16 +53,15 @@ Use the user's requested language.
 
 ### Create
 
-Use this shape for each UR:
+Use a compact table for the state and User Story of each UR:
 
 ```markdown
 ## UR_01 <User goal>
 
-State: proposed
-
-### User Story
-
-<User> wants <goal> so that <value>.
+| Item | Content |
+|---|---|
+| State | proposed |
+| User Story | <User> wants <goal> so that <value>. |
 
 ### Acceptance Criteria
 

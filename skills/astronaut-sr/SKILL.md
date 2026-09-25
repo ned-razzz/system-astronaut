@@ -22,8 +22,10 @@ where needed, not as a substitute for describing it.
    features, sub-features, logical data, and necessary quality constraints.
 4. Group related behavior into cohesive features. Give each feature or
    distinct quality requirement one unique sequential SR ID. Within it, use
-   Sub-SR IDs for semantically complete sub-features or behaviors, not for
-   individual checks or sentences.
+   Sub-SR IDs as `01`, `02` within each parent SR for semantically complete
+   sub-features or behaviors, not for individual checks or sentences. When
+   referring to a Sub-SR outside its table, qualify it with its parent SR,
+   such as `SR_01_01`.
 5. Describe conditions, actions, and observable results so a reader can follow
    the behavior. Do not invent thresholds, supported options, failure policies,
    or other decisions absent from the input. Record unresolved behavior,
@@ -80,45 +82,48 @@ Use the user's requested language.
 
 Begin with a short system overview explaining its purpose and how the main
 features relate, grounded in the confirmed URs. Do not introduce new scope.
-Then use this shape for each SR:
+Then use a compact metadata table and a behavior table for each SR. Give each
+behavior branch its own row so its condition and observable result can be read
+together. Repeat the Sub-SR ID for additional branches of the same sub-feature.
+Keep table cells concise; retain the order of dependent actions in the result.
+Use this shape:
 
 ```markdown
 ## SR_01 <Feature or quality requirement name>
 
-<One- to three-sentence explanation of the feature's role and overall behavior>
+| Item | Content |
+|---|---|
+| Overview | <One- to three-sentence explanation of the feature's role and overall behavior> |
+| Type | Functional / Non-functional |
+| State | proposed |
+| Source UR | UR_01, UR_02 |
+| Priority | Required |
 
-- **Type:** Functional | Non-functional
-- **State:** proposed
-- **Source UR:** UR_01, UR_02
-- **Priority:** Required
-
-### SR_01.1 <Sub-feature or behavior name>
-
-<Short explanation of this sub-feature's responsibility and scope>
-
-#### Behavior
-
-- Under <condition>, the system shall <action or observable result>.
-
-#### Verification Criteria
-
-- <Supported quantitative criterion or separate verification condition, if needed>
+| Sub-SR and scope | Condition | System behavior and result | Verification Criteria |
+|---|---|---|---|
+| 01 — <Name and brief responsibility> | <Condition> | <Action or observable result> | <Supported criterion, if needed> |
+| 01 | <Another branch condition, if any> | <Result for that branch> | — |
+| 02 — <Name and brief responsibility> | <Condition> | <Action or observable result> | — |
 
 ### Data
 
-- <Logical data item or state>: <Meaning and relevant values>
+| Logical data item or state | Meaning and relevant values |
+|---|---|
+| <Item or state> | <Meaning and relevant values> |
 ```
 
 Assign IDs sequentially starting at `SR_01`; when extending an artifact, use
-the next available ID. Number Sub-SRs within their parent (`SR_01.1`,
-`SR_01.2`). Preserve existing SR and Sub-SR IDs when updating; append new IDs
-without renumbering existing items. Omit Verification Criteria and Data when
-not needed. Append only the applicable sections:
+the next available ID. Number Sub-SRs `01`, `02`, and so on within each
+parent SR. When referencing one elsewhere, combine the parent and Sub-SR
+numbers (`SR_01_01`; the first Sub-SR of `SR_02` is `SR_02_01`). Preserve
+existing SR and Sub-SR IDs when updating; append new IDs without renumbering
+existing items. Omit the Verification Criteria column and Data table when not
+needed. Append only the applicable sections:
 
 ```markdown
 ## Open Questions
 
-- <Unresolved behavior, scope, term, state, or quantitative criterion> (**Source UR:** UR_01; **Related SR:** SR_01.1)
+- <Unresolved behavior, scope, term, state, or quantitative criterion> (**Source UR:** UR_01; **Related SR:** SR_01_01)
 
 ## Unused UR Inputs
 
