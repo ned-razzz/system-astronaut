@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="32 40 176 176" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">System Astronaut</title>
+  <desc id="desc">An indigo rocket descending diagonally down and right, with two trailing motion lines, sculpted wings, a round window, and an architectural crossbar representing top-down system design.</desc>
+  <g transform="rotate(-45 128 128)" stroke="#6366D8" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="7" d="M108 34V56M132 28V43"/>
+    <g fill="#6366D8" stroke="none">
+      <path d="M87 99L61 117Q57 120 57 125V149Q57 153 61 151L87 137ZM169 99L195 117Q199 120 199 125V149Q199 153 195 151L169 137Z"/>
+      <path d="M109 76L115 61Q116 58 120 58H136Q140 58 141 61L147 76Z"/>
+    </g>
+    <g stroke-width="10">
+      <path d="M98 76H158Q170 76 170 88V132C170 155 149 179 128 194C107 179 86 155 86 132V88Q86 76 98 76Z"/>
+      <circle cx="128" cy="107" r="13"/>
+    </g>
+    <path stroke-width="8" d="M105 142H151"/>
+  </g>
+</svg>
