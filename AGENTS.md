@@ -2,8 +2,8 @@
 
 ## Project Structure
 
-This repository contains four independent Agent Skills. Keep each workflow in
-its own `SKILL.md`; do not merge them into a single conditional Skill.
+This repository contains three independent Agent Skills. Keep each workflow in
+its own `SKILL.md`.
 
 ```text
 .
@@ -13,8 +13,7 @@ its own `SKILL.md`; do not merge them into a single conditional Skill.
 │   └── skills/
 │       ├── astronaut-ur/SKILL.md
 │       ├── astronaut-sr/SKILL.md
-│       ├── astronaut-hw/SKILL.md
-│       └── astronaut-sw/SKILL.md
+│       └── astronaut-sa/SKILL.md
 └── tests/
     └── astronaut-ur/
         ├── cases.yaml
@@ -25,8 +24,7 @@ The workflow is:
 
 ```text
 Project Description → User Requirements → System Requirements
-                                      ├→ Hardware Architecture
-                                      └→ Software Architecture
+                                      └→ System Architecture
 ```
 
 Do not add an orchestration Skill, references, assets, or per-Skill test
