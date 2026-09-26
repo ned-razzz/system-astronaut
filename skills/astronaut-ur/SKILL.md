@@ -13,7 +13,7 @@ requirement content.
 ## Workflow
 
 1. Extract actors, goals, user value, observable outcomes, stated scope,
-   explicit exclusions, and constraints.
+   explicit exclusions, and user-facing conditions.
 2. Preserve all explicitly stated in-scope user goals. Reduce to the smallest
    usable scope only when the user explicitly requests an MVP, prototype,
    initial release, or scope reduction. Do not infer such a request from a
@@ -34,15 +34,19 @@ requirement content.
    instead of forcing it into the UR template.
 
 Use only `confirmed`, `proposed`, `open`, `conflicted`, `out-of-scope`, or
-`n/a` as states. Mark a goal `out-of-scope` only when the source explicitly
-excludes or defers it; preserve existing excluded items. If its scope is
-unclear, record an Open Question. Use `n/a` only when the source explicitly
-makes an item inapplicable.
+`n/a` as states. Use `out-of-scope` to retain the history of a drafted UR
+explicitly excluded from the entire product through discussion. Preserve the
+excluded UR and its ID. Deferral to a later release alone does not make a UR
+`out-of-scope`; retain its stated timing or condition. If its scope is unclear,
+record an Open Question. Use `n/a` only when the source explicitly makes an
+item inapplicable.
 
 ## Boundaries
 
 - Keep APIs, databases, protocols, technology choices, internal structures,
   system behavior, and architecture out of UR. Leave them for SR or design.
+- Keep externally imposed system constraints outside UR; they are separate
+  inputs to SR.
 - Keep team-wide Definition of Done rules separate from Acceptance Criteria.
 - Do not document every future detail. Leave refinement to conversation and
   update the UR when decisions are made.
@@ -78,7 +82,7 @@ applicable section:
 
 ## Excluded Scope
 
-- <Explicitly deferred or excluded goal>
+- <Explicitly excluded product goal; reference the existing UR ID when available>
 ```
 
 Do not add empty sections, priority, or implementation fields.

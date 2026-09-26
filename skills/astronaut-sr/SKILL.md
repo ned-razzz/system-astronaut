@@ -45,15 +45,15 @@ where needed, not as a substitute for describing it.
    quality attribute and any available source UR or related SR. Ignore
    irrelevant attributes. Never invent a quality target, threshold, or policy
    to complete the sweep.
-7. Capture externally imposed system constraints stated in confirmed URs or
-   directly supplied by the user under `System Constraints`. Give each a
-   unique SR ID, state, and traceable source. If it is unclear whether a
-   constraint is mandated, ask under `Open Questions`. Keep technology and
-   deployment choices made by the designer in architecture.
+7. Capture system constraints explicitly supplied outside the UR artifact
+   under `System Constraints`. Give each a unique SR ID, state, and traceable
+   external source. Do not derive system constraints from URs. If it is unclear
+   whether a constraint is mandated, ask under `Open Questions`. Keep
+   technology and deployment choices made by the designer in architecture.
 8. Link each functional and non-functional SR to all confirmed URs from which
-   it is derived. Link each constraint SR to its source UR or the specific
-   user-supplied input. Traceability is recorded at the SR level, not on every
-   requirement bullet. Sub-SRs inherit their parent SR's source URs and state.
+   it is derived. Link each constraint SR to the specific external input.
+   Traceability is recorded at the SR level, not on every requirement bullet.
+   Sub-SRs inherit their parent SR's source URs and state.
 
 Use only `confirmed`, `proposed`, `open`, `conflicted`, `out-of-scope`, or
 `n/a` as states. A newly derived SR is `proposed` unless the user explicitly
@@ -69,8 +69,9 @@ Write these kinds of SR:
 - Non-functional requirements: necessary, verifiable quality constraints such
   as performance, safety, reliability, security, usability, or
   maintainability.
-- System constraints: externally mandated technical, organizational, or
-  operating conditions, recorded separately from functional and quality SRs.
+- System constraints: technical, organizational, or operating conditions
+  explicitly mandated outside the UR artifact, recorded separately from
+  functional and quality SRs.
 
 Explain each feature's role in the system and overall behavior in one to three
 sentences. Give each sub-feature a short explanation of its responsibility
@@ -155,11 +156,11 @@ when not needed. When external constraints are present, append:
 | Item | Content |
 |---|---|
 | State | proposed |
-| Source | UR_02 or <specific user-supplied input> |
+| Source | <specific external input> |
 | Constraint | <Externally mandated condition> |
 ```
 
-Quote or identify the direct input when no UR ID exists. A new constraint SR
+Quote or identify the external input. A new constraint SR
 is `proposed` unless the user explicitly confirms that SR itself. Append only
 the other applicable sections:
 
