@@ -1,12 +1,12 @@
 param(
-    [string]$InstallRoot = $(if ($env:CODEX_HOME) { Join-Path $env:CODEX_HOME 'skills' } else { Join-Path $HOME '.codex\skills' })
+    [string]$InstallRoot = (Join-Path $HOME '.agents\skills')
 )
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$skillRoot = Join-Path $repoRoot '.agents\skills'
+$skillRoot = Join-Path $repoRoot 'skills'
 
-foreach ($name in 'astronaut-ur', 'astronaut-sr', 'astronaut-hw', 'astronaut-sw') {
+foreach ($name in 'astronaut-ur', 'astronaut-sr', 'astronaut-sa') {
     $source = Join-Path $skillRoot $name
     $destination = Join-Path $InstallRoot $name
 

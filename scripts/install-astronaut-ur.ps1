@@ -1,9 +1,9 @@
 param(
-    [string]$InstallRoot = $(if ($env:CODEX_HOME) { Join-Path $env:CODEX_HOME 'skills' } else { Join-Path $HOME '.codex\skills' })
+    [string]$InstallRoot = (Join-Path $HOME '.agents\skills')
 )
 
 $ErrorActionPreference = 'Stop'
-$source = Join-Path (Split-Path -Parent $PSScriptRoot) '.agents\skills\astronaut-ur'
+$source = Join-Path (Split-Path -Parent $PSScriptRoot) 'skills\astronaut-ur'
 $destination = Join-Path $InstallRoot 'astronaut-ur'
 
 if (-not (Test-Path -LiteralPath $source -PathType Container)) {

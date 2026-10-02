@@ -3,8 +3,8 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$source = Join-Path (Split-Path -Parent $PSScriptRoot) 'skills\astronaut-sr'
-$destination = Join-Path $InstallRoot 'astronaut-sr'
+$source = Join-Path (Split-Path -Parent $PSScriptRoot) 'skills\astronaut-sa'
+$destination = Join-Path $InstallRoot 'astronaut-sa'
 
 if (-not (Test-Path -LiteralPath $source -PathType Container)) {
     throw "Skill source not found: $source"
@@ -12,4 +12,4 @@ if (-not (Test-Path -LiteralPath $source -PathType Container)) {
 
 New-Item -ItemType Directory -Path $destination -Force | Out-Null
 Copy-Item -Path (Join-Path $source '*') -Destination $destination -Recurse -Force
-Write-Host "Installed astronaut-sr to $destination"
+Write-Host "Installed astronaut-sa to $destination"
