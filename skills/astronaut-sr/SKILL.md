@@ -40,10 +40,11 @@ where needed, not as a substitute for describing it.
    sentences. Outside the table, qualify the ID as `SR_01_01`.
 5. Describe conditions, actions, and observable results so a reader can follow
    the behavior. Do not invent thresholds, supported options, failure policies,
-   or other decisions absent from the input. Record unresolved behavior,
-   scope, terms, states, or necessary quantitative criteria under
-   `Pending System Specification Decisions`, citing the source UR and related
-   SR where available. Write each entry as a question. Propose new numerical
+   or other decisions absent from the input. Record unresolved system behavior
+   within the agreed product scope, such as supported cases, terms, states, or
+   necessary quantitative criteria, under `Pending System Specification
+   Decisions`, citing the source UR and related SR where available. Write each
+   entry as a question. Propose new numerical
    values or policies only when the user requests proposals, and distinguish
    candidates from agreed decisions. Existing proposed values retain their
    status; preserving them does not approve them.
@@ -72,10 +73,12 @@ where needed, not as a substitute for describing it.
    Traceability is recorded at the SR level, not on every requirement bullet.
    Sub-SRs inherit their parent SR's source URs and state.
 9. Apply answers only to the affected requirements and questions. Questions
-   about product goals, scope, or user acceptance belong in UR's
-   `Pending Product Decisions`; system behavior, quality criteria, and external
-   constraints belong here. Implementation methods belong in design. Respect
-   a narrowed task and update other artifacts only within the user's scope.
+   about whether a user goal or feature belongs in the product, or what user
+   outcome is acceptable, belong in UR's `Pending Product Decisions`. Questions
+   about how a confirmed feature behaves within that product scope, quality
+   criteria, and external constraints belong here. Implementation methods
+   belong in design. Respect a narrowed task and update other artifacts only
+   within the user's scope.
    Report changed IDs and the user decision supporting each state change;
    do not request the same approval again or infer approval of other items.
 
