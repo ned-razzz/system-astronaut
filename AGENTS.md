@@ -40,7 +40,9 @@ python3 /home/robo/.codex/skills/.system/skill-creator/scripts/quick_validate.py
 
 ## Change Safety
 
-Preserve the distinction between `confirmed`, `proposed`, `open`,
-`conflicted`, `out-of-scope`, and `n/a` states. Keep traceability from UR to
-SR and from SR to architecture items. Do not silently invent unresolved
-decisions.
+For UR and SR, use `confirmed` and `proposed` as the only requirement state
+values. Preserve the other distinctions separately: record unresolved
+decisions as questions, mark conflicts explicitly, retain excluded product
+goals under Excluded Scope, and explain when an architecture view or
+applicability area is `n/a`. Keep traceability from UR to SR and from SR to
+architecture items. Do not silently invent unresolved decisions.

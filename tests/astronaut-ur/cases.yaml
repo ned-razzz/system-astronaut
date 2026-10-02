@@ -28,9 +28,9 @@
     - one_user_goal_per_ur
     - user_story_has_who_what_why
     - acceptance_criteria_are_observable_pass_fail
-    - valid_requirement_state
+    - requirement_state_is_proposed_or_confirmed
     - state_is_metadata
-    - unresolved_items_are_open
+    - unresolved_decisions_are_recorded_as_questions
     - out_of_scope_is_preserved
     - no_invented_decisions
     - no_premature_baseline
@@ -49,9 +49,9 @@
     - one_user_goal_per_ur
     - user_story_has_who_what_why
     - acceptance_criteria_are_observable_pass_fail
-    - valid_requirement_state
+    - requirement_state_is_proposed_or_confirmed
     - state_is_metadata
-    - unresolved_items_are_open
+    - unresolved_decisions_are_recorded_as_questions
     - no_invented_decisions
     - no_premature_baseline
     - no_priority_field
