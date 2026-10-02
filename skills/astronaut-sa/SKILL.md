@@ -6,28 +6,26 @@ description: Derive a traceable system architecture from confirmed System Requir
 # System Architecture
 
 Define the hardware and software structure needed to satisfy confirmed System
-Requirements. Include only the views and decisions that help explain the system
-or guide implementation.
+Requirements. Choose the views and level of detail that help explain the
+system or guide implementation.
 
-## Workflow
+## Principles
 
-1. Start from confirmed SR items and link every architecture decision to its
-   source SR.
-2. Define relevant hardware components, responsibilities, interfaces, power,
-   sensing, actuation, and deployment boundaries.
-3. Define relevant software components, responsibilities, interfaces, data
-   flows, and runtime boundaries.
-4. Show important boundaries and interactions between hardware and software
-   where they affect behavior, constraints, or implementation.
-5. Mark unresolved decisions as `open` instead of guessing. Do not invent
-   requirements or alter SR states.
-6. Mark hardware or software architecture `n/a` with a reason when that area
-   has no useful design decisions.
+- Ground architecture items and decisions in confirmed SRs, keeping their
+  source links visible.
+- Describe relevant components, responsibilities, interfaces, data flows,
+  and runtime or deployment boundaries. Include hardware concerns such as
+  power, sensing, and actuation where applicable.
+- Explain important interactions and boundaries, including those between
+  hardware and software, and why the chosen structure meets the requirements.
+- Make design choices within the confirmed requirements. Present unresolved
+  choices as open questions or clearly identified candidates; changes to
+  requirements need a requirement decision.
+- Mark a view or applicability area `n/a` with a reason when it has no relevant
+  design content.
 
 ## Output
 
-Use the user's requested language. Describe only the components, interfaces,
-constraints, deployment/runtime boundaries, and data flows needed to explain
-the architecture. Keep traceability to source SRs visible for each decision.
-Avoid duplicating requirements or recording implementation detail that does
-not affect an architectural choice.
+Use the requested language and format. Select prose, tables, or diagrams to
+make architectural choices and their implications clear. Keep detail relevant
+to those choices and reference requirements rather than duplicating them.
