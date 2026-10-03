@@ -12,6 +12,17 @@ in design.
 
 ## Workflow
 
+Before authoring or deriving SRs, check every requirement in every source UR
+document and any itemized external-constraint input. Proceed only when all
+source items are `confirmed`; Sub-items inherit an explicit parent state unless
+they have their own state. A `proposed`, missing, or unclear state blocks the
+whole task. For unstructured constraints, require explicit user confirmation
+covering all source items. Report the source document and affected items and
+stop without writing output, selecting only confirmed items, producing a
+constraints-only artifact, or automatically confirming inputs. Reference
+examples and the target SR artifact being reviewed, revised, or confirmed are
+not upstream source documents.
+
 1. Review confirmed URs, current requirements, agreed terminology, latest user
    decisions, and explicit external constraints.
 2. Outline each feature's start, progression, result checks, repetition or
@@ -25,9 +36,8 @@ in design.
 
 - Derive functional and non-functional SRs from in-scope `confirmed` URs,
   covering their User Stories and Acceptance Criteria. Excluded product goals
-  remain in UR's `Excluded Scope`. Identify proposed URs as deferred inputs
-  when useful. Without confirmed URs, only directly supplied constraints can
-  be specified.
+  remain in UR's `Excluded Scope`. Any unconfirmed source item blocks derivation
+  for the entire input; do not treat proposed URs as deferred inputs and proceed.
 - Derive supporting behavior needed to fulfill confirmed goals; do not simply
   copy UR names into SRs. Distinguish necessary behavior from policies or
   capabilities that require a user decision.
@@ -164,8 +174,7 @@ For externally supplied constraints, include:
 ```
 
 Include `Pending System Specification Decisions`, briefly indicating when no
-questions remain. List deferred UR inputs when useful. Without confirmed URs,
-omit the `Features` section.
+questions remain. If the source confirmation check fails, produce no SR artifact.
 
 ## Review
 

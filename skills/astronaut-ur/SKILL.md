@@ -11,6 +11,16 @@ with an ID, name, and state as metadata.
 
 ## Workflow
 
+Before authoring or deriving requirements, check every item in every source
+document. Proceed only when all source items are `confirmed`. A `proposed`,
+missing, or unclear state blocks the whole task; do not select only confirmed
+items or produce a partial artifact. For a project brief without item states,
+require explicit user confirmation covering all of its source items; do not
+infer confirmation merely because the brief was supplied. On failure, report
+the source document and affected items and stop without writing the output or
+automatically confirming inputs. Reference examples and the target artifact
+being reviewed, revised, or confirmed are not upstream source documents.
+
 1. Understand the input, actual users, product scope, and relevant decisions.
 2. Identify complete user outcomes and group their steps, means, and conditions
    before drafting requirements.
