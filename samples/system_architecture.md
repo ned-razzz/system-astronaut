@@ -1,7 +1,6 @@
 # Uhlanga System Architecture
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"darkMode": true, "background": "#171c22", "primaryColor": "#303b46", "primaryTextColor": "#d6dde4", "primaryBorderColor": "#657687", "secondaryColor": "#242c35", "tertiaryColor": "#1d242c", "lineColor": "#8998a7", "textColor": "#d6dde4", "clusterBkg": "#1d242c", "clusterBorder": "#465361", "edgeLabelBackground": "#242c35"}}}%%
 flowchart TB
     subgraph UI["UI"]
         direction TB
