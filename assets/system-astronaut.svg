@@ -4,7 +4,7 @@
   <g transform="rotate(-45 128 128)" stroke="#6366D8" stroke-linecap="round" stroke-linejoin="round">
     <path stroke-width="7" d="M108 34V56M132 28V43"/>
     <g fill="#6366D8" stroke="none">
-      <path d="M87 99L61 117Q57 120 57 125V149Q57 153 61 151L87 137ZM169 99L195 117Q199 120 199 125V149Q199 153 195 151L169 137Z"/>
+      <path transform="translate(0 236) scale(1 -1)" d="M87 99L66.2 117Q63 120 63 125V149Q63 153 66.2 151L87 137ZM169 99L189.8 117Q193 120 193 125V149Q193 153 189.8 151L169 137Z"/>
       <path d="M109 76L115 61Q116 58 120 58H136Q140 58 141 61L147 76Z"/>
     </g>
     <g stroke-width="10">
