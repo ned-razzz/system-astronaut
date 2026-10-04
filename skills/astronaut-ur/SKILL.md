@@ -1,6 +1,6 @@
 ---
 name: astronaut-ur
-description: Create or review User Requirements as user stories with observable acceptance criteria from a confirmed project brief.
+description: Create or review User Requirements as user stories with observable acceptance criteria from a project description.
 ---
 
 # User Requirements
@@ -10,16 +10,6 @@ reviewable artifact. Each UR contains a User Story and Acceptance Criteria,
 with an ID, name, and state as metadata.
 
 ## Workflow
-
-Before authoring or deriving requirements, check every item in every source
-document. Proceed only when all source items are `confirmed`. A `proposed`,
-missing, or unclear state blocks the whole task; do not select only confirmed
-items or produce a partial artifact. For a project brief without item states,
-require explicit user confirmation covering all of its source items; do not
-infer confirmation merely because the brief was supplied. On failure, report
-the source document and affected items and stop without writing the output or
-automatically confirming inputs. Reference examples and the target artifact
-being reviewed, revised, or confirmed are not upstream source documents.
 
 1. Understand the input, actual users, product scope, and relevant decisions.
 2. Identify complete user outcomes and group their steps, means, and conditions
@@ -32,8 +22,7 @@ being reviewed, revised, or confirmed are not upstream source documents.
 ## Principles
 
 - Preserve the stated product scope, including explicitly included future or
-  optional goals and their conditions. A lightweight document does not imply
-  an MVP or a smaller product. Reduce scope only when requested.
+  optional goals and their conditions. Reduce scope only when requested.
 - Give each UR one complete product-level user goal. Group steps, means, and
   conditions that achieve the same outcome, retaining necessary details in
   Acceptance Criteria. Split when items provide distinct user outcomes;
@@ -48,11 +37,10 @@ being reviewed, revised, or confirmed are not upstream source documents.
   is judged. Preserve the goal's meaning and strength; do not replace it with
   an easier proxy or invent thresholds. Include relevant recovery, stopping,
   and notification outcomes alongside normal success conditions.
-- Keep user goals and outcomes in UR, detailed system behavior and externally
-  mandated system constraints in SR, and implementation choices in design.
+- Keep user goals and outcomes in UR, detailed system behavior in SR, and
+  implementation choices in design.
 - Development, integration, and research or evaluation work are user goals only
-  when the product itself provides that capability to an actual user. Who
-  implements a feature does not determine whether it belongs in product scope.
+  when the product itself provides that capability to an actual user.
 - Distinguish acceptance conditions from detailed test setup, repetition,
   evidence collection, and analysis. Keep team-wide Definition of Done separate
   from Acceptance Criteria.
@@ -68,21 +56,25 @@ invalidate an agreed user goal.
 When using a completed artifact as a writing example, do not treat its product
 decisions or confirmed states as agreement on new requirements.
 
-`State` is either `proposed` or `confirmed`. Use `proposed` for drafts and
-requirements whose user goal, scope, or acceptance conditions still require
-agreement. Use `confirmed` only when the source or user establishes agreement
-on that requirement. In a confirmation task, an answer settling the remaining
-product questions can establish that agreement. Having no pending questions
-alone does not establish confirmation. Confirmation concerns the requirement,
-not implementation completion.
+`State` is `open`, `proposed`, `confirmed`, or `conflict`.
+
+- Use `open` when the user goal, scope, or acceptance conditions contain
+  ambiguity or unresolved product decisions.
+- Use `proposed` when those questions are resolved and the requirement is
+  clear but has not yet been agreed.
+- Use `confirmed` when the source or user establishes agreement on the
+  requirement and no product questions remain.
+- Use `conflict` when product requirement decisions conflict, retaining the
+  competing positions until resolved.
+
+Confirmation concerns the requirement, not implementation completion.
 
 Record unresolved decisions as specific questions under
 `Pending Product Decisions`, linking existing UR IDs when applicable. If no
 requirement can be drafted without guessing, record only the question. Apply
 user answers to the affected requirements and revise or remove only resolved
-questions. Mark disagreements as `Conflict` outside `State` and retain the
-competing positions until resolved; a conflicting input does not silently
-replace a confirmed requirement.
+questions. A conflicting input does not silently replace agreed requirement
+content.
 
 Keep explicitly excluded product goals under `Excluded Scope`, retaining their
 existing IDs and content. Later delivery or lower importance does not imply
@@ -100,9 +92,9 @@ with one row per UR; preserve an existing format unless a change is requested.
 | UR_01 | <User goal> | <User> wants <goal> so that <value>. | <Observable acceptance conditions> | proposed |
 ```
 
-Keep the artifact focused on product requirements. Include
-`Pending Product Decisions`; briefly indicate when there are no pending
-questions. Include `Excluded Scope` when explicit exclusions exist.
+Keep the artifact focused on product requirements. Always include
+`Pending Product Decisions` and `Excluded Scope`; briefly indicate when either
+has no items.
 Do not include drafting notes, change histories, ID mappings, or follow-up
 work in the requirements artifact.
 

@@ -1,30 +1,20 @@
 ---
 name: astronaut-sr
-description: Create or review System Requirements for behavior, quality, and constraints from confirmed User Requirements and external inputs.
+description: Create or review System Requirements for behavior and quality from confirmed User Requirements.
 ---
 
 # System Requirements
 
 Explain the system's purpose, features, behavior, and required qualities so a
-reader can understand what it must do. Derive requirements from confirmed URs
-and explicitly supplied external constraints, keeping implementation choices
-in design.
+reader can understand what it must do. Derive requirements from confirmed URs,
+keeping implementation choices in detailed design.
 
 ## Workflow
 
-Before authoring or deriving SRs, check every requirement in every source UR
-document and any itemized external-constraint input. Proceed only when all
-source items are `confirmed`; Sub-items inherit an explicit parent state unless
-they have their own state. A `proposed`, missing, or unclear state blocks the
-whole task. For unstructured constraints, require explicit user confirmation
-covering all source items. Report the source document and affected items and
-stop without writing output, selecting only confirmed items, producing a
-constraints-only artifact, or automatically confirming inputs. Reference
-examples and the target SR artifact being reviewed, revised, or confirmed are
-not upstream source documents.
+Author or derive SRs only when all URs in the source documents are `confirmed`.
 
-1. Review confirmed URs, current requirements, agreed terminology, latest user
-   decisions, and explicit external constraints.
+1. Review confirmed URs, current requirements, agreed terminology, and latest
+   user decisions.
 2. Outline each feature's start, progression, result checks, repetition or
    transition, ending, and relevant exceptions before writing Sub-SRs.
 3. Extract shared responsibilities into coherent SRs and retain each feature's
@@ -35,9 +25,7 @@ not upstream source documents.
 ## Derivation Principles
 
 - Derive functional and non-functional SRs from in-scope `confirmed` URs,
-  covering their User Stories and Acceptance Criteria. Excluded product goals
-  remain in UR's `Excluded Scope`. Any unconfirmed source item blocks derivation
-  for the entire input; do not treat proposed URs as deferred inputs and proceed.
+  covering their User Stories and Acceptance Criteria.
 - Derive supporting behavior needed to fulfill confirmed goals; do not simply
   copy UR names into SRs. Distinguish necessary behavior from policies or
   capabilities that require a user decision.
@@ -54,84 +42,79 @@ not upstream source documents.
   clearly, using "shall" or the equivalent in the requested language. Describe
   feature relationships when they explain the behavior; avoid repetitive
   statements that another SR must be followed. Preserve source traceability.
-- Keep required behavior and qualities verifiable without adding test
-  procedures to the default artifact. The system checking an action's result
-  or confirming recovery is runtime behavior and belongs in SR. Test setup,
-  repetitions, evidence collection, and analysis belong in a validation plan
-  when requested. Preserve agreed quality targets and human evaluation methods;
-  separating test procedures does not remove the underlying obligations.
-- Describe logical data, states, and values when needed to understand behavior.
-  Concrete storage structures, APIs, protocols, and technology choices belong
-  in design unless externally mandated. Distinguish unknown values, temporary
-  interruption, recovery, normal completion, and failure when behavior depends
-  on them. Specify when settings take effect if relevant; leave undecided
-  timing or policies as questions.
+- Write requirements so their fulfillment can be checked. Detailed test
+  procedures, such as test environments, repetition counts, and evidence
+  collection, belong in a separate validation plan. Include execution-result
+  and recovery checks that the system must perform in SR as system behavior.
+  Preserve agreed quality targets and human evaluation methods.
 - Include supported failure handling, permitted recovery, resumption, and final
   stopping behavior. Do not assume recovery scope, retry limits, or notification
   policies that have not been agreed.
 - Review relevant quality needs, such as performance, security, reliability,
   and usability. Derive supported quality requirements separately; raise
   grounded gaps as questions instead of inventing targets or policies.
-- Record externally mandated technical, organizational, or operating conditions
-  under `System Constraints`, with a specific external source. Distinguish
-  these from choices made by the designer.
 
 ## Decisions and State
 
 Read current requirements and relevant decisions. Derive known behavior even
 when some system details remain unresolved. Do not fill gaps with assumed
 policies, thresholds, support scope, or responsibility assignments. A completed
-reference artifact reflects decisions for that case; its policies, priorities,
-and confirmed states do not settle decisions for new requirements.
+reference artifact reflects decisions for that case; its policies and priorities
+do not settle decisions for new requirements.
 
-Record missing behavior, terms, quality criteria, or constraint decisions as
-specific questions under `Pending System Specification Decisions`, with
-available source UR and related SR IDs. Identify the quality attribute for
-quality-related questions.
+Record missing behavior, terms, or quality criteria as
+concise questions under `Pending System Specification Decisions`. Use one
+bullet per question, prefixed with related SR IDs when available; otherwise
+write only the question.
 Questions about product scope or acceptable user outcomes belong in UR;
-implementation choices belong in design, and test procedures in validation
+implementation choices belong in detailed design, and test procedures in validation
 planning. Ask for values or policies when needed to define required behavior
-or quality; do not mix these questions with implementation or test choices.
+or quality.
 
 Use supported values and policies. Offer candidates when proposals are
 requested, clearly distinguishing them from agreed decisions. Apply explicit
 user changes to all affected requirements and revise or remove only resolved
-questions. Do not accumulate superseded decisions. Deferral does not establish
-a confirmed capability or permanent exclusion. Mark conflicting positions as
-`Conflict` outside `State` and retain them until resolved rather than silently
-changing a confirmed requirement.
+questions.
 
-`State` is either `proposed` or `confirmed`. New SRs, including constraints,
-are `proposed` unless the user confirms those SRs themselves; confirmation of
-a source UR does not confirm a derived SR. Unresolved decisions are questions,
-not additional states. Having no pending questions does not confirm an SR.
-Confirmation, priority, and implementation completion are separate. Explain
-an area with no applicable requirements in a scope note.
+`State` is `open`, `proposed`, `confirmed`, or `conflict`.
 
-When the user confirms source URs as part of the task, apply that decision to
-the covered items with resolved product questions; update source artifacts
-when included in the task.
+- Use `open` when required behavior or quality contains ambiguity or unresolved
+  system specification decisions.
+- Use `proposed` when those questions are resolved and the requirement is
+  clear but has not yet been agreed.
+- Use `confirmed` when the source or user establishes agreement on the SR
+  and no system specification questions remain.
+- Use `conflict` when requirement decisions conflict, retaining the competing
+  positions until resolved.
+
+Confirmation concerns the requirement, not implementation completion.
+Confirmed URs do not automatically confirm the SRs derived from them.
+
+Explain an area with no applicable requirements in a scope note.
 
 ## Traceability and Priority
 
-Link each functional or quality SR to all confirmed URs from which it derives,
-and each constraint to its external source. Sub-SRs inherit the parent SR's
-sources and state.
+Link each functional or quality SR to all confirmed URs from which it derives.
+Sub-SRs inherit the parent SR's sources.
 
-Assign sequential IDs from `SR_01`, sharing the sequence with constraints.
+Assign sequential IDs from `SR_01`.
 Number Sub-SRs within each parent as `01`, `02`, and reference them elsewhere
 as `SR_01_01`. Preserve existing IDs and append after the highest assigned
 number without reusing retired IDs. For regrouping, retain viable IDs and
 update affected references within scope.
 
 Priority expresses importance within the agreed scope, not exclusion or
-implementation order, and does not weaken mandatory constraints. Preserve
-existing or user-supplied priorities and their scale. For SRs without a priority,
-assign a draft priority based on contribution to user goals, functional
-dependencies, and failure impact. Use the existing scale, or High / Medium / Low
-for a new artifact. Mark AI-assigned priorities as proposals with a brief reason
-in the same metadata entry so the user can review and revise them; do not treat
-them as agreed values or introduce another requirement state.
+implementation order. Use the
+MoSCoW priorities `Must`, `Should`, and `Could`:
+
+- `Must`: Essential to fulfill agreed user goals.
+- `Should`: Important, but an acceptable workaround or temporary deferral exists.
+- `Could`: Desirable, with limited impact if deferred.
+
+Preserve agreed priorities using this scale. For SRs without a priority, assign
+a draft priority based on contribution to user goals, functional dependencies,
+and failure impact. Mark AI-assigned priorities as proposals with a brief reason
+in the same metadata entry so the user can review and revise them.
 
 ## Output
 
@@ -148,9 +131,9 @@ table, respecting a requested or existing format.
 | Item | Content |
 |---|---|
 | Overview | <Feature role and overall behavior> |
-| State | proposed |
-| Source UR | UR_01, UR_02 |
+| State | <open / proposed / confirmed / conflict> |
 | Priority | <Value; identify an AI proposal and briefly explain its basis> |
+| Source UR | UR_01, UR_02 |
 
 | Sub-SR | Name | Requirement |
 |---|---|---|
@@ -158,29 +141,14 @@ table, respecting a requested or existing format.
 ```
 
 Use one row per meaningful Sub-SR, keeping its related conditions and branches
-together. Include necessary logical data and state definitions in the behavior.
+together.
 Add separate sections or columns only when the requested format needs them.
 The default artifact contains requirements, sources, states, priorities, and unresolved
 specification decisions. Do not include drafting notes, change histories, ID
 mappings, or follow-up work.
 
-For externally supplied constraints, include:
-
-```markdown
-## System Constraints
-
-### SR_XX <Constraint name>
-
-| Item | Content |
-|---|---|
-| State | proposed |
-| Source | <Specific external input> |
-| Priority | <Value; identify an AI proposal and briefly explain its basis> |
-| Constraint | <Externally mandated condition> |
-```
-
 Include `Pending System Specification Decisions`, briefly indicating when no
-questions remain. If the source confirmation check fails, produce no SR artifact.
+questions remain.
 
 ## Review
 
