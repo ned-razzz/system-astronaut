@@ -9,11 +9,10 @@ its own `SKILL.md`.
 .
 ├── AGENTS.md
 ├── README.md
-├── .agents/
-│   └── skills/
-│       ├── astronaut-ur/SKILL.md
-│       ├── astronaut-sr/SKILL.md
-│       └── astronaut-sa/SKILL.md
+├── skills/
+│   ├── astronaut-ur/SKILL.md
+│   ├── astronaut-sr/SKILL.md
+│   └── astronaut-sa/SKILL.md
 └── tests/
     └── astronaut-ur/
         ├── cases.yaml
@@ -23,8 +22,7 @@ its own `SKILL.md`.
 The workflow is:
 
 ```text
-Project Description → User Requirements → System Requirements
-                                      └→ System Architecture
+Project Description → User Requirements → System Requirements → System Architecture
 ```
 
 Do not add an orchestration Skill, references, assets, or per-Skill test
@@ -34,8 +32,8 @@ scaffolding until repeated use demonstrates that they are needed.
 
 Validate every changed Skill after modifying its frontmatter or layout:
 
-```bash
-python3 /home/robo/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/<skill-name>
+```powershell
+python "$env:USERPROFILE\.codex\skills\.system\skill-creator\scripts\quick_validate.py" .\skills\<skill-name>
 ```
 
 ## Change Safety
@@ -43,6 +41,5 @@ python3 /home/robo/.codex/skills/.system/skill-creator/scripts/quick_validate.py
 For UR and SR, use `confirmed` and `proposed` as the only requirement state
 values. Preserve the other distinctions separately: record unresolved
 decisions as questions, mark conflicts explicitly, retain excluded product
-goals under Excluded Scope, and explain when an architecture view or
-applicability area is `n/a`. Keep traceability from UR to SR and from SR to
+goals under Excluded Scope. Keep traceability from UR to SR and from SR to
 architecture items. Do not silently invent unresolved decisions.
