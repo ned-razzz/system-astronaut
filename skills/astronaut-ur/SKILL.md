@@ -1,6 +1,6 @@
 ---
 name: astronaut-ur
-description: Create or review lightweight User Requirements from a project brief or product idea as user stories with testable acceptance criteria. Use for user needs, user stories, acceptance criteria, or user-level product requirements; do not use for System Requirements or architecture.
+description: Create or review User Requirements as user stories with observable acceptance criteria from a confirmed project brief.
 ---
 
 # User Requirements

@@ -1,6 +1,6 @@
 ---
 name: astronaut-sa
-description: Create or review a system architecture from confirmed System Requirements, first identifying relevant hardware, then placing software components and specifying their communication in a Mermaid diagram. Use for architecture design, not requirements authoring or detailed implementation.
+description: Create or review architecture diagrams and design summaries of hardware, software responsibilities, deployment, and communication from confirmed System Requirements.
 ---
 
 # System Architecture
@@ -144,7 +144,7 @@ subgraph UI["UI"]
         AdminGUI["AdminGUI"]
     end
 
-    subgraph UserMobile["User Mobile Device"]
+    subgraph UserMobile["User Mobile"]
         UserApp["UserApp"]
     end
 end
@@ -155,7 +155,7 @@ end
 subgraph Service["Service"]
     direction LR
 
-    subgraph OperationServer["Operation Server"]
+    subgraph ServerA["ServerA"]
         direction LR
 
         WebService["WebService"]
@@ -163,7 +163,7 @@ subgraph Service["Service"]
         OperationDB["OperationDB"]
     end
 
-    subgraph SupportServer["Support Server"]
+    subgraph ServerB["ServerB"]
         SupportService["SupportService"]
     end
 end
@@ -182,12 +182,8 @@ subgraph Device["Device"]
         direction LR
 
         DeviceControllerB["DeviceControllerB"]
-
-        subgraph FunctionControllers[" "]
-            direction LR
-            FunctionControllerA["FunctionControllerA"]
-            FunctionControllerB["FunctionControllerB"]
-        end
+        FunctionControllerA["FunctionControllerA"]
+        FunctionControllerB["FunctionControllerB"]
     end
 end
 
@@ -205,16 +201,32 @@ ApplicationService -->|ROS| DeviceControllerB
 
 ```
 
-Outside the diagram, briefly explain only important details that the diagram
-cannot convey and list any unresolved architecture questions.
+Immediately below the diagram, write a concise design summary explaining how
+the architecture fulfills the SRs as a whole:
+
+- Explain which required capabilities or constraints call for the hardware
+  shown and why software components are divided and placed as shown.
+- Describe how components cooperate through the required functional flows,
+  including result checks, transitions, recovery, and stopping where relevant.
+  Make each required behavior's design support understandable without listing
+  SR IDs, repeating the SR specification, or creating a mapping table.
+- Explain structural choices needed to support required qualities and external
+  constraints. Distinguish proposed design from implemented or verified behavior,
+  and leave ambiguous SR behavior as questions rather than inventing it.
+
+Use the summary for component responsibilities and necessary design rationale;
+do not add a separate report or duplicate explanations. List consequential
+unresolved architecture questions. Omit inapplicable areas without an `n/a` list.
 
 The artifact contains architecture and its necessary explanation.
 
 ## Review
 
-Check that in-scope confirmed SRs have responsible components at the selected
-level, quality obligations are supported by the structure or identified as open,
-and no excluded or proposed requirement has become an established capability.
+Review the diagram and design summary against the complete functional flows of
+the confirmed SRs. Check that component responsibilities and interactions support
+the required behaviors, qualities, and constraints at the selected level, without
+requiring an SR ID mapping. Identify gaps or ambiguities as open questions, and
+check that no excluded or proposed requirement has become an established capability.
 Check actual process and host boundaries, interaction directions, representative
 instances, and pending decisions. Verify Mermaid syntax and render
 the diagram when a renderer is available; keep diagram and text consistent.

@@ -1,6 +1,6 @@
 ---
 name: astronaut-sr
-description: Create or review traceable System Requirements from confirmed User Requirements and explicit external constraints. Use for functional, quality, or constraint SR work, not architecture design.
+description: Create or review System Requirements for behavior, quality, and constraints from confirmed User Requirements and external inputs.
 ---
 
 # System Requirements
@@ -125,16 +125,20 @@ number without reusing retired IDs. For regrouping, retain viable IDs and
 update affected references within scope.
 
 Priority expresses importance within the agreed scope, not exclusion or
-implementation order. Record priority only when explicitly supplied. Preserve
-the user's values and placement; otherwise omit it. Propose priorities only
-when requested, without presenting those proposals as agreed decisions.
+implementation order, and does not weaken mandatory constraints. Preserve
+existing or user-supplied priorities and their scale. For SRs without a priority,
+assign a draft priority based on contribution to user goals, functional
+dependencies, and failure impact. Use the existing scale, or High / Medium / Low
+for a new artifact. Mark AI-assigned priorities as proposals with a brief reason
+in the same metadata entry so the user can review and revise them; do not treat
+them as agreed values or introduce another requirement state.
 
 ## Output
 
 Use the requested language and format. Preserve an existing format unless a
 change is requested. For new artifacts, use a `Features` section with this
-structure for each functional or quality SR. Add an explicitly supplied
-`Priority` to the metadata table; omit it when none is supplied.
+structure for each functional or quality SR. Include `Priority` in the metadata
+table, respecting a requested or existing format.
 
 ```markdown
 ## Features
@@ -146,6 +150,7 @@ structure for each functional or quality SR. Add an explicitly supplied
 | Overview | <Feature role and overall behavior> |
 | State | proposed |
 | Source UR | UR_01, UR_02 |
+| Priority | <Value; identify an AI proposal and briefly explain its basis> |
 
 | Sub-SR | Name | Requirement |
 |---|---|---|
@@ -155,7 +160,7 @@ structure for each functional or quality SR. Add an explicitly supplied
 Use one row per meaningful Sub-SR, keeping its related conditions and branches
 together. Include necessary logical data and state definitions in the behavior.
 Add separate sections or columns only when the requested format needs them.
-The default artifact contains requirements, sources, states, and unresolved
+The default artifact contains requirements, sources, states, priorities, and unresolved
 specification decisions. Do not include drafting notes, change histories, ID
 mappings, or follow-up work.
 
@@ -170,6 +175,7 @@ For externally supplied constraints, include:
 |---|---|
 | State | proposed |
 | Source | <Specific external input> |
+| Priority | <Value; identify an AI proposal and briefly explain its basis> |
 | Constraint | <Externally mandated condition> |
 ```
 
